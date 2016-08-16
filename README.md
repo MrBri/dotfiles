@@ -11,3 +11,4 @@ TODO:
 	* ln -s ~/dotfiles/init.vim ~/.config/nvim/
 * Save text expansion
 	* aText or Fish functions or both
+* Clear or automation of neovim packages
