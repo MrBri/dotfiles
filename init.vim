@@ -24,6 +24,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhartington/oceanic-next'
 Plug 'othree/yajs.vim'
 Plug 'neomake/neomake'
+Plug 'tpope/vim-commentary'
+Plug 'editorconfig/editorconfig-vim'
 
 " Add plugins to &runtimepath
 call plug#end()

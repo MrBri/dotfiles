@@ -17,3 +17,12 @@ TODO:
 * Backup fish/fisherman settings
 	* prompt
 	* fnm
+* Vimplug in .vim instead of .config/nvim?
+
+
+Commands to run:
+`curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+
+Git submodules:
+`https://github.com/mhartington/oceanic-next-iterm.git`
