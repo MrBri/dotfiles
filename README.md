@@ -18,6 +18,7 @@ TODO:
 	* prompt
 	* fnm
 * Vimplug in .vim instead of .config/nvim?
+* "GoInstallBinaries for vim-go, also script 'brew install go'?
 
 
 Commands to run:

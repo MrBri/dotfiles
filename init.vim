@@ -21,11 +21,12 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'mhartington/oceanic-next'
-Plug 'othree/yajs.vim'
-Plug 'neomake/neomake'
-Plug 'tpope/vim-commentary'
-Plug 'editorconfig/editorconfig-vim'
+Plug 'mhartington/oceanic-next'		"colorscheme
+Plug 'othree/yajs.vim'			"Javascript syntax
+Plug 'fatih/vim-go'			"All things golang
+Plug 'neomake/neomake'			"Linting
+Plug 'tpope/vim-commentary'		"Comment code
+Plug 'editorconfig/editorconfig-vim'	"Pick up .editorconfig
 
 " Add plugins to &runtimepath
 call plug#end()
