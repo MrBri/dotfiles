@@ -19,6 +19,7 @@ TODO:
 	* fnm
 * Vimplug in .vim instead of .config/nvim?
 * "GoInstallBinaries for vim-go, also script 'brew install go'?
+* Use fish functions in stead of aText for stuff like gp 'git pull --rebase'. Can enter key be used in fish functions?
 
 
 Commands to run:
