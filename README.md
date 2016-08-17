@@ -14,3 +14,6 @@ TODO:
 	* ln -s ~/dotfiles/init.vim ~/.config/nvim/
 * Save text expansion
 	* aText or Fish functions or both
+* Backup fish/fisherman settings
+	* prompt
+	* fnm
