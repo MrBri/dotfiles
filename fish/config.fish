@@ -1,5 +1,5 @@
 alias git=hub
-fish_vi_mode
+fish_vi_key_bindings
 
-set -Ux GOPATH $HOME/go
+set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin

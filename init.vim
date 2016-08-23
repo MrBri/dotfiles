@@ -37,5 +37,9 @@ call plug#end()
  set background=dark
 
  " Neomake
+" let g:neomake_logfile = '/usr/local/var/log/neomake.log'
+let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
+let g:neomake_javascript_enabled_makers = ['eslint']
+
 autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
