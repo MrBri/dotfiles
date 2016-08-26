@@ -1,0 +1,6 @@
+abbr gc 'git commit'
+abbr gco 'git checkout'
+abbr gs 'git status'
+abbr gl 'git log --stat'
+abbr gd 'git diff'
+abbr gp 'git pull --rebase'
