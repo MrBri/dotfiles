@@ -3,8 +3,12 @@
 set number
 set ruler
 
+"exit :term
 :tnoremap <C-\> <C-\><C-n>
+"Still use :E with plugins
 :command E Explore
+"*Practical Vim
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 set termguicolors " enable true colors, only for >= v0.1.5
 
