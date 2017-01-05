@@ -36,10 +36,9 @@ Plug 'othree/es.next.syntax.vim'	"ES7 syntax
 " Add plugins to &runtimepath
 call plug#end()
 
- " Theme
+" Theme
 syntax enable
 colorscheme OceanicNext
-set background=dark
 
  " Neomake
 " let g:neomake_logfile = '/usr/local/var/log/neomake.log'
