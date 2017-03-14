@@ -13,6 +13,7 @@ TODO:
 	* ln -s ~/dotfiles/config.fish ~/.config/fish/
 	* ln -s ~/dotfiles/init.vim ~/.config/nvim/
 * Save text expansion
+  * `source ~/dotfiles/fish/abbr.txt` to add abbreviations to fish
 	* aText or Fish functions or both
 * Backup fish/fisherman settings
 	* prompt
