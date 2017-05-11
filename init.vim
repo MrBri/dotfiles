@@ -32,6 +32,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'othree/es.next.syntax.vim'	"ES7 syntax
+Plug 'mattn/emmet-vim'			"exapnding abbrevations
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -58,3 +59,6 @@ let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on
 
 " vim-go
 let g:go_fmt_command = "goimports"
+
+" vim-jsx
+let g:jsx_ext_required = 0 " https://github.com/avajs/ava/issues/631
