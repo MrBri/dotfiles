@@ -10,7 +10,8 @@ The next generation of dotfiles
 
 TODO: 
 * Automate symlinks
-	* ln -s ~/dotfiles/config.fish ~/.config/fish/
+	* ln -s ~/dotfiles/fish/config.fish ~/.config/fish/
+	* ln -s ~/dotfiles/fish/completions/terraform.fish ~/.config/fish/completions/
 	* ln -s ~/dotfiles/init.vim ~/.config/nvim/
 * Save text expansion
   * `source ~/dotfiles/fish/abbr.txt` to add abbreviations to fish
