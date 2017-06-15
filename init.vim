@@ -18,6 +18,17 @@ set termguicolors " enable true colors, only for >= v0.1.5
 set grepprg=ag\ --nogroup\ --column\ $*
 set grepformat=%f:%l:%c:%m
 
+" vim-markdown-composer
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'mhartington/oceanic-next'		"colorscheme
@@ -33,6 +44,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'othree/es.next.syntax.vim'	"ES7 syntax
 Plug 'mattn/emmet-vim'			"exapnding abbrevations
+Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+Plug 'fleischie/vim-styled-components'  "syntax highlighting for css in js
+Plug 'briancollins/vim-jst'		"ejs syntax
 
 " Add plugins to &runtimepath
 call plug#end()
