@@ -61,9 +61,12 @@ if executable('./node_modules/.bin/eslint')
   let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
   let g:neomake_javascript_enabled_makers = ['eslint']
 endif
-
+if executable('./node_modules/.bin/flow')
+  let g:neomake_javascript_flow_exe = './node_modules/.bin/flow'
+  let g:neomake_javascript_enabled_makers = ['flow']
+endif
 autocmd! BufWritePost * Neomake
-let g:neomake_open_list=2
+let g:neomake_open_list=0
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
@@ -77,7 +80,7 @@ let g:go_fmt_command = "goimports"
 " vim-jsx
 let g:jsx_ext_required = 0 " https://github.com/avajs/ava/issues/631
 
-" neoformat for javascript using prettier.
+" Neoformat for javascript using Prettier.
 autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote\ --write\ --trailing-comma\ es5
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
