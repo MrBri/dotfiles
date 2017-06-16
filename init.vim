@@ -33,11 +33,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'mhartington/oceanic-next'		"colorscheme
 Plug 'othree/yajs.vim'			"Javascript syntax
-Plug 'fatih/vim-go'			"All things golang
+Plug 'fatih/vim-go'			"All things Golang
 Plug 'neomake/neomake'			"Linting
 Plug 'tpope/vim-commentary'		"Comment code
 Plug 'editorconfig/editorconfig-vim'	"Pick up .editorconfig
-Plug 'sbdchd/neoformat'			"Beautifier
+Plug 'sbdchd/neoformat'			"Beautifier, works with Prettier
 Plug 'mxw/vim-jsx'			"JSX syntax
 Plug 'pangloss/vim-javascript'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -76,3 +76,12 @@ let g:go_fmt_command = "goimports"
 
 " vim-jsx
 let g:jsx_ext_required = 0 " https://github.com/avajs/ava/issues/631
+
+" neoformat for javascript using prettier.
+autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote\ --write\ --trailing-comma\ es5
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.js Neoformat
+augroup END
