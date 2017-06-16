@@ -56,17 +56,17 @@ syntax enable
 colorscheme OceanicNext
 
  " Neomake
-" let g:neomake_logfile = '/usr/local/var/log/neomake.log'
+let makers = []
 if executable('./node_modules/.bin/eslint')
   let g:neomake_javascript_eslint_exe = './node_modules/.bin/eslint'
-  let g:neomake_javascript_enabled_makers = ['eslint']
+  call add(makers, 'eslint')
 endif
 if executable('./node_modules/.bin/flow')
   let g:neomake_javascript_flow_exe = './node_modules/.bin/flow'
-  let g:neomake_javascript_enabled_makers = ['flow']
+  call add(makers, 'flow')
 endif
+let g:neomake_javascript_enabled_makers = makers
 autocmd! BufWritePost * Neomake
-let g:neomake_open_list=0
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
