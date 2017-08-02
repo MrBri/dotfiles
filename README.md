@@ -5,8 +5,12 @@ The next generation of dotfiles
 * The best unix shell: [Fish](fishshell.com)
 * The best editor: [Neovim](neovim)
 * The best way to manage packages on macOS: [Homebrew](brew.sh)
-* The best Node.js version manager: [fnm](https://github.com/fisherman/fnm)
+* The best Node.js version manager: [nvm](https://github.com/creationix/nvm#important-notes)
 * The best editor and terminal color scheme: [Oceanic-Next](https://github.com/mhartington/oceanic-next-iterm)
+
+Commands to run:
+`curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
 TODO: 
 * Automate symlinks
@@ -14,19 +18,9 @@ TODO:
 	* ln -s ~/dotfiles/fish/completions/terraform.fish ~/.config/fish/completions/
 	* ln -s ~/dotfiles/init.vim ~/.config/nvim/
 * Save text expansion
-  * `source ~/dotfiles/fish/abbr.txt` to add abbreviations to fish
-	* aText or Fish functions or both
-* Backup fish/fisherman settings
-	* prompt
-	* fnm
+	* source ~/dotfiles/fish/abbr.txt to add abbreviations to fish
 * Vimplug in .vim instead of .config/nvim?
 * "GoInstallBinaries for vim-go, also script 'brew install go'?
-* Use fish functions in stead of aText for stuff like gp 'git pull --rebase'. Can enter key be used in fish functions?
-
-
-Commands to run:
-`curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
 Git submodules:
 `https://github.com/mhartington/oceanic-next-iterm.git`
