@@ -86,5 +86,5 @@ autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote
 let g:neoformat_try_formatprg = 1
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.js Neoformat
+  autocmd BufWritePre *.js undojoin | Neoformat
 augroup END
