@@ -88,3 +88,5 @@ augroup fmt
   autocmd!
   autocmd BufWritePre *.js undojoin | Neoformat
 augroup END
+
+autocmd BufNewFile,BufRead Jenkinsfile   set syntax=groovy
