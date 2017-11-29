@@ -47,6 +47,9 @@ Plug 'mattn/emmet-vim'			"exapnding abbrevations
 Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 Plug 'fleischie/vim-styled-components'  "syntax highlighting for css in js
 Plug 'briancollins/vim-jst'		"ejs syntax
+Plug 'chr4/nginx.vim'			"nginx syntax
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -81,12 +84,26 @@ let g:go_fmt_command = "goimports"
 let g:jsx_ext_required = 0 " https://github.com/avajs/ava/issues/631
 
 " Neoformat for javascript using Prettier.
-autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote\ --write\ --trailing-comma\ es5
+" autocmd FileType javascript setlocal formatprg=prettier\ --stdin\ --single-quote\ --write\ --trailing-comma\ es5
+
 " Use formatprg when available
-let g:neoformat_try_formatprg = 1
+" let g:neoformat_try_formatprg = 1
+
+" augroup fmt
+"   autocmd!
+"   autocmd BufWritePre *.js Neoformat
+" augroup END
+"
+" let g:neoformat_enabled_javascript = ['eslint_d']
+
 augroup fmt
   autocmd!
-  autocmd BufWritePre *.js undojoin | Neoformat
+  autocmd BufWritePre *.js undojoin | Neoformat eslint_d
 augroup END
 
-autocmd BufNewFile,BufRead Jenkinsfile   set syntax=groovy
+let mapleader = ","
+nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
+
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
+nmap <Leader>r :Tags<CR>
