@@ -50,6 +50,8 @@ Plug 'briancollins/vim-jst'		"ejs syntax
 Plug 'chr4/nginx.vim'			"nginx syntax
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'HerringtonDarkholme/yats.vim'	"typescript
+Plug 'digitaltoad/vim-pug'		"pug (formally Jade)
 
 " Add plugins to &runtimepath
 call plug#end()
