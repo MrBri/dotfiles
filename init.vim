@@ -54,6 +54,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'HerringtonDarkholme/yats.vim'	"typescript
 Plug 'digitaltoad/vim-pug'		"pug (formally Jade)
+Plug 'jparise/vim-graphql'
 
 " Add plugins to &runtimepath
 call plug#end()
