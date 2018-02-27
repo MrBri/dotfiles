@@ -2,6 +2,8 @@
 
 set number
 set ruler
+set tabstop=2
+set shiftwidth=2
 
 "exit :term
 :tnoremap <C-\> <C-\><C-n>
