@@ -19,6 +19,9 @@ set termguicolors " enable true colors, only for >= v0.1.5
 " change search (:grep) to ag
 set grepprg=ag\ --nogroup\ --column\ $*
 set grepformat=%f:%l:%c:%m
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " vim-markdown-composer
 function! BuildComposer(info)
@@ -55,6 +58,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'HerringtonDarkholme/yats.vim'	"typescript
 Plug 'digitaltoad/vim-pug'		"pug (formally Jade)
 Plug 'jparise/vim-graphql'
+Plug 'mileszs/ack.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -109,6 +113,10 @@ augroup END
 let mapleader = ","
 nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 
+" fzf bindings
+" search open files like tabs
 nmap ; :Buffers<CR>
+" search all files in current working directory
 nmap <Leader>t :Files<CR>
+" https://andrew.stwrt.ca/posts/vim-ctags/
 nmap <Leader>r :Tags<CR>
