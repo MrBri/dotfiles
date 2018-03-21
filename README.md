@@ -9,7 +9,7 @@ The next generation of dotfiles
 * The best editor and terminal color scheme: [Oceanic-Next](https://github.com/mhartington/oceanic-next-iterm)
 
 Commands to run:
-`curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+`curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 
 TODO: 
