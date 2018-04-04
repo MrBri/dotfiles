@@ -115,8 +115,11 @@ nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 
 " fzf bindings
 " search open files like tabs
-nmap ; :Buffers<CR>
+nmap <Leader>; :Buffers<CR>
 " search all files in current working directory
 nmap <Leader>t :Files<CR>
 " https://andrew.stwrt.ca/posts/vim-ctags/
 nmap <Leader>r :Tags<CR>
+
+autocmd BufNewFile,BufRead *.conf set syntax=nginx " set nginx syntax for all .conf files
+
