@@ -1,7 +1,7 @@
 alias git=hub
 fish_vi_key_bindings
 
-nvm use node    # for use with fast-nvm-fish
+nvm use 8    # for use with fast-nvm-fish
 
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
