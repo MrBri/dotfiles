@@ -4,6 +4,9 @@ set number
 set ruler
 set tabstop=2
 set shiftwidth=2
+set autowrite
+
+let mapleader = ","
 
 "exit :term
 :tnoremap <C-\> <C-\><C-n>
@@ -39,6 +42,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhartington/oceanic-next'		"colorscheme
 Plug 'othree/yajs.vim'			"Javascript syntax
 Plug 'fatih/vim-go'			"All things Golang
+Plug 'AndrewRadev/splitjoin.vim' "split or join objects/structs
+Plug 'SirVer/ultisnips'			"Snippets recommended by fatih/vim-go
 Plug 'neomake/neomake'			"Linting
 Plug 'tpope/vim-commentary'		"Comment code
 Plug 'editorconfig/editorconfig-vim'	"Pick up .editorconfig
@@ -88,6 +93,22 @@ let g:tern_show_signature_in_pum = '0'  " This do disable full signature type on
 
 " vim-go
 let g:go_fmt_command = "goimports"
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)<Paste>
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
 " vim-jsx
 let g:jsx_ext_required = 0 " https://github.com/avajs/ava/issues/631
@@ -110,7 +131,6 @@ augroup fmt
   autocmd BufWritePre *.js undojoin | Neoformat eslint_d
 augroup END
 
-let mapleader = ","
 nnoremap <leader>f mF:%!eslint_d --stdin --fix-to-stdout<CR>`F
 
 " fzf bindings
