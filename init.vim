@@ -5,7 +5,7 @@ set ruler
 set tabstop=2
 set shiftwidth=2
 set autowrite
-
+set expandtab
 let mapleader = ","
 
 "exit :term
@@ -42,8 +42,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhartington/oceanic-next'		"colorscheme
 Plug 'othree/yajs.vim'			"Javascript syntax
 Plug 'fatih/vim-go'			"All things Golang
-Plug 'AndrewRadev/splitjoin.vim' "split or join objects/structs
-Plug 'SirVer/ultisnips'			"Snippets recommended by fatih/vim-go
+Plug 'AndrewRadev/splitjoin.vim'	"Splint or join objects/structs
+Plug 'SirVer/ultisnips'						"snippets
 Plug 'neomake/neomake'			"Linting
 Plug 'tpope/vim-commentary'		"Comment code
 Plug 'editorconfig/editorconfig-vim'	"Pick up .editorconfig
@@ -96,7 +96,7 @@ let g:go_fmt_command = "goimports"
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
-autocmd FileType go nmap <leader>r  <Plug>(go-run)<Paste>
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -107,6 +107,7 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
@@ -142,4 +143,5 @@ nmap <Leader>t :Files<CR>
 nmap <Leader>r :Tags<CR>
 
 autocmd BufNewFile,BufRead *.conf set syntax=nginx " set nginx syntax for all .conf files
+autocmd BufNewFile,BufRead config set ft=yaml " set yaml syntax for all config files
 
