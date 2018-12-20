@@ -5,13 +5,16 @@ SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/t4b0/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+source /usr/local/opt/asdf/asdf.sh
 source /usr/local/share/antigen/antigen.zsh
+
+export PATH=~/.local/bin:$PATH
 
 antigen use oh-my-zsh
 
