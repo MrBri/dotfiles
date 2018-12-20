@@ -18,6 +18,9 @@ antigen use oh-my-zsh
 antigen bundle git
 antigen bundle wbinglee/zsh-wakatime
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle vi-mode
 
 antigen theme https://github.com/sbugzu/gruvbox-zsh.git gruvbox
 
