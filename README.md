@@ -5,25 +5,21 @@ Third generation of dotfiles
 * The best terminal for macOS: [Therm](https://github.com/trufae/Therm)
   * "it make sense to not over-engineer or make it fully configurable with features that <10% of users use"
 * The best color scheme for terminal and editor: [gruvbox](https://github.com/morhetz/gruvbox)
-* The best unix shell: [zsh]
-* The best editor: [SpaceVim]
-* The best package manager for macOS: [Homebrew]
+* The best unix shell: [zsh](https://github.com/zsh-users/antigen#meta)
+* The best package manager for macOS: [Homebrew](brew.sh) (but not for [everything](https://nemethgergely.com/you-might-not-need-homebrew/) nor version management as mentioned next)
 * The best version manager for multiple languages and tools: [asdf](https://github.com/asdf-vm/asdf) (blog: https://medium.com/@sidneyliebrand/switching-to-asdf-version-manager-eb6569e4e562)
 * The best font: [mononoki](https://madmalik.github.io/mononoki/)
   * Specifially [Mononoki Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Mononoki)
 * The best documentation viewer: [Dash](https://kapeli.com/dash)
+* Trying out [SpaceVim](https://spacevim.org/) but have been happy and productive with custom [init.vim](https://github.com/MrBri/dotfiles/blob/master/init.vim) and [neovim](https://github.com/neovim/neovim)
 
 ## brews
-brew tap caskroom/fonts
-brew install caskroom/cask/therm
-brew cask install font-mononoki-nerd-font
-brew cask install dash
+* `brew tap caskroom/fonts`
+* `brew cask install therm font-mononoki-nerd-font dash`
 
-brew install zsh
-brew install asdf
-brew install neovim
-brew install openssl readline sqlite3 xz zlib (pre reqs for `asdf plugin-add python`)
-brew install coreutils gpg (pre reqs for `asdf plugin-add nodejs`)
+* `brew install openssl readline sqlite3 xz zlib` (pre reqs for `asdf plugin-add python`)
+* `brew install coreutils gpg` (pre reqs for `asdf plugin-add nodejs`)
+* `brew install zsh asdf neovim ripgrep fzf`
 
 ## misc commands and symlinks
 * When running Mojave or higher (10.14+) you will also [need to install the additional SDK headers](https://developer.apple.com/documentation/xcode_release_notes/xcode_10_release_notes#3035624) (pre reqs for asdf python)
@@ -34,9 +30,13 @@ brew install coreutils gpg (pre reqs for `asdf plugin-add nodejs`)
 * `asdf plugin-add nodejs` and desired version, likely 10.x.x `asdf install nodejs 10.14.2`, set it `asdf global nodejs 10.14.2`
 * `asdf plugin-add golang` and desired version, likely 1.x.x `asdf install golang 1.11.4`, set it `asdf global golang 1.11.4`
 
+* `asdf reshim python` will need to be run each time a python pip binary is installed
+* `/usr/local/opt/fzf/install` install bindings for fzf
+* `tic -x ~/dotfiles/xterm-256color-italic.terminfo` italics in terminal ([@dubistkomisch](https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be))
+
 ## manual
 * In Therm. In profile and color import the gruvbox color theme from this repo or gruvbox themselves. 
-  * Also set under profile and text set the font to Mononoki Nerd Font. You preference of size and boldness
+  * Also set under profile and text set the font to Mononoki Nerd Font. Your preference of size and boldness
 
 ## worthwhile "pay for" or "pay to upgrade"
 * Dash
@@ -45,31 +45,8 @@ brew install coreutils gpg (pre reqs for `asdf plugin-add nodejs`)
 * [aliases for git](https://github.com/robbyrussell/oh-my-zsh/wiki/Plugin:git)
 * [Vim commands (Neovim)](https://vim.rtorr.com/) and [SpaceVim](https://spacevim.org/use-vim-as-ide/)
 * zsh basics? fish shell style?
+* [How to use fzf](https://github.com/junegunn/fzf#usage)
 
-
-# dotfiles2
-The next generation of dotfiles
-
-* The best terminal for macOS: [iterm2](https://www.iterm2.com/downloads.html)
-* The best unix shell: [Fish](fishshell.com)
-* The best editor: [Neovim](neovim)
-* The best way to manage packages on macOS: [Homebrew](brew.sh)
-* The best Node.js version manager: [nvm](https://github.com/creationix/nvm#important-notes)
-* The best editor and terminal color scheme: [Oceanic-Next](https://github.com/mhartington/oceanic-next-iterm)
-
-Commands to run:
-`curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
-
-TODO: 
-* Automate symlinks
-	* ln -s ~/dotfiles/fish/config.fish ~/.config/fish/
-	* ln -s ~/dotfiles/fish/completions/terraform.fish ~/.config/fish/completions/
-	* ln -s ~/dotfiles/init.vim ~/.config/nvim/
-* Save text expansion
-	* source ~/dotfiles/fish/abbr.txt to add abbreviations to fish
-* Vimplug in .vim instead of .config/nvim?
-* "GoInstallBinaries for vim-go, also script 'brew install go'?
-
-Git submodules:
-`https://github.com/mhartington/oceanic-next-iterm.git`
+## pips
+* `pip install awscli --upgrade --user` then `asdf reshim python`
+* `pip install mdv` then `asdf reshim python` (terminal markdown previewer)

@@ -20,6 +20,6 @@ test -x (which aws_completer); and complete --command aws --no-files --arguments
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [ -f /Users/ty/.config/yarn/global/node_modules/tabtab/.completions/sls.fish ]; and . /Users/ty/.config/yarn/global/node_modules/tabtab/.completions/sls.fish
 
-source ~/.asdf/asdf.fish
+source /usr/local/opt/asdf/asdf.fish
 
 # set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
