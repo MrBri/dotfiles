@@ -5,13 +5,14 @@ Third generation of dotfiles
 * The best terminal for macOS: [Therm](https://github.com/trufae/Therm)
   * "it make sense to not over-engineer or make it fully configurable with features that <10% of users use"
 * The best color scheme for terminal and editor: [gruvbox](https://github.com/morhetz/gruvbox)
-* The best unix shell: [zsh](https://github.com/zsh-users/antigen#meta)
+* The best unix shell: [zsh](https://github.com/zsh-users/antigen#meta) (thinking I'll go back to fish since zsh plugisn aren't consistent)
 * The best package manager for macOS: [Homebrew](brew.sh) (but not for [everything](https://nemethgergely.com/you-might-not-need-homebrew/) nor version management as mentioned next)
 * The best version manager for multiple languages and tools: [asdf](https://github.com/asdf-vm/asdf) (blog: https://medium.com/@sidneyliebrand/switching-to-asdf-version-manager-eb6569e4e562)
 * The best font: [mononoki](https://madmalik.github.io/mononoki/)
   * Specifially [Mononoki Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Mononoki)
 * The best documentation viewer: [Dash](https://kapeli.com/dash)
-* Trying out [SpaceVim](https://spacevim.org/) but have been happy and productive with custom [init.vim](https://github.com/MrBri/dotfiles/blob/master/init.vim) and [neovim](https://github.com/neovim/neovim)
+* The best file search fzf. [fzf](https://github.com/junegunn/fzf) (In terminal and in Neovim)
+* Neovim with maintained init.vim: [neovim](https://neovim.io/) (Found SpaceVim to be inconsistent, Oni might be worth a try, Oni2 looks promising but just got started)
 
 ## brews
 * `brew tap caskroom/fonts`
