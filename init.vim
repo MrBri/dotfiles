@@ -60,7 +60,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'                                                    "colorscheme
 Plug 'tpope/vim-commentary'		                                            "Comment code
 Plug '/usr/local/opt/fzf'                                                 "Be sure fzf is installed with Homebrew
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf.vim'                                                   "vim friendly fzf
+Plug 'w0rp/ale'                                                           "Lint, fix...
 
 " Syntax highlighting
 Plug 'fatih/vim-go'			                                                  "All things Golang
@@ -94,8 +95,6 @@ Plug 'mattn/emmet-vim'			                                              "exapndin
 
 " Not sure yet
 " Plug 'AndrewRadev/splitjoin.vim'	                                        "Splint or join objects/structs
-" Plug 'SirVer/ultisnips'						                                        "snippets
-" Plug 'sbdchd/neoformat'			"Beautifier, works with Prettier
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'mileszs/ack.vim'
 " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
@@ -115,16 +114,22 @@ colorscheme gruvbox
 " Ctrl-p but also set command-p in Therm (iterm2) in keyboard tab to :Files\n
 nnoremap <c-p> :Files<CR>
 " search open files like tabs
-nmap <Leader>; :Buffers<CR>
+nmap <leader>; :Buffers<CR>
 " search all files in current working directory
-nmap <Leader>t :Files<CR>
+nmap <leader>t :Files<CR>
 " https://andrew.stwrt.ca/posts/vim-ctags/
-nmap <Leader>r :Tags<CR>
+nmap <leader>r :Tags<CR>
 
 " UltiSnips: Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ALE:
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\}
+nmap <leader>f :ALEFix<CR>
 
 " Neomake:
 " let makers = []
@@ -156,7 +161,7 @@ nnoremap <leader>a :cclose<CR>
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
