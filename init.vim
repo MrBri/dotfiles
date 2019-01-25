@@ -8,6 +8,7 @@ set shiftwidth=2
 set autowrite
 set expandtab
 set termguicolors " enable true colors, only for >= v0.1.5
+set nowrap
 
 "exit :term
 :tnoremap <C-\> <C-\><C-n>
@@ -66,6 +67,7 @@ Plug 'w0rp/ale'                                                           "Lint,
 " Syntax highlighting
 Plug 'fatih/vim-go'			                                                  "All things Golang
 Plug 'chr4/nginx.vim'			                                                "nginx syntax
+Plug 'hashivim/vim-terraform'                                             "Terraform tool
 " Plug 'pangloss/vim-javascript'                                            "Do I need both?
 " Plug 'othree/yajs.vim'			                                              "Javascript syntax
 " Plug 'othree/es.next.syntax.vim'	                                        "ES7 syntax
@@ -172,6 +174,9 @@ function! s:build_go_files()
   endif
 endfunction
 
+" Terraform
+let g:terraform_align=1
+let g:terraform_fmt_on_save=1
 
 " vim-jsx
 " let g:jsx_ext_required = 0 " https://github.com/avajs/ava/issues/631
