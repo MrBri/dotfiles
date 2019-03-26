@@ -1,4 +1,4 @@
-" set encoding=utf8
+t set encoding=utf8
 
 let mapleader = ","
 set number
@@ -14,8 +14,6 @@ set nowrap
 :tnoremap <C-\> <C-\><C-n>
 "Still use :E with plugins
 :command E Explore
-"*Practical Vim
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -58,6 +56,8 @@ map <leader>cd :cd %:p:h<cr>:pwd<cr>
 call plug#begin('~/.vim/plugged')
 
 " Core
+Plug 'vimwiki/vimwiki'
+
 Plug 'morhetz/gruvbox'                                                    "colorscheme
 Plug 'tpope/vim-commentary'		                                            "Comment code
 Plug '/usr/local/opt/fzf'                                                 "Be sure fzf is installed with Homebrew
@@ -130,6 +130,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " ALE:
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
+\   'yaml': ['prettier'],
+\   'yml': ['prettier'],
 \}
 nmap <leader>f :ALEFix<CR>
 
@@ -202,3 +204,9 @@ let g:terraform_fmt_on_save=1
 autocmd BufNewFile,BufRead *.conf set syntax=nginx " set nginx syntax for all .conf files
 autocmd BufNewFile,BufRead config set ft=yaml " set yaml syntax for all config files
 
+"*Practical Vim
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+
+" vimiki
+let g:vimwiki_list = [{'path': '~/Dropbox/Notes/',
+                     \ 'syntax': 'markdown', 'ext': '.md'}]

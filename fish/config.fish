@@ -31,6 +31,9 @@ kitty + complete setup fish | source
 # # migrating from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh 
 
 # Aliases
+alias tf='terraform'
+
+# Git
 alias g='git'
 #compdef g=git
 alias gst='git status'
