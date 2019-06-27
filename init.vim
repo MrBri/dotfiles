@@ -1,4 +1,4 @@
-t set encoding=utf8
+set encoding=utf8
 
 let mapleader = ","
 set number
@@ -68,13 +68,13 @@ Plug 'w0rp/ale'                                                           "Lint,
 Plug 'fatih/vim-go'			                                                  "All things Golang
 Plug 'chr4/nginx.vim'			                                                "nginx syntax
 Plug 'hashivim/vim-terraform'                                             "Terraform tool
+Plug 'jparise/vim-graphql'                                                "Graphql syntax
 " Plug 'pangloss/vim-javascript'                                            "Do I need both?
 " Plug 'othree/yajs.vim'			                                              "Javascript syntax
 " Plug 'othree/es.next.syntax.vim'	                                        "ES7 syntax
 " Plug 'carlitux/deoplete-ternjs'
 " Plug 'HerringtonDarkholme/yats.vim'	                                      "Typescript syntax
 " Plug 'mxw/vim-jsx'			                                                  "JSX syntax
-" Plug 'jparise/vim-graphql'                                                "Graphql syntax
 " Plug 'fleischie/vim-styled-components'                                    "syntax highlighting for css in js
 " Plug 'digitaltoad/vim-pug'		"pug (formally Jade)
 " Plug 'briancollins/vim-jst'		"ejs syntax
@@ -132,6 +132,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'yaml': ['prettier'],
 \   'yml': ['prettier'],
+\   'json': ['jq', 'prettier'],
 \}
 nmap <leader>f :ALEFix<CR>
 

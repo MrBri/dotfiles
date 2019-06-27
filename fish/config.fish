@@ -5,6 +5,8 @@ fish_vi_key_bindings
 
 set -x GOPATH $HOME/go
 set PATH $GOPATH/bin /usr/local/opt/coreutils/libexec/gnubin ~/.local/bin /usr/local/sbin $PATH
+set -gx DEFAULT_VAULT_PASSWORD_FILE ~/.vault_password.txt
+set -gx ANSIBLE_VAULT_PASSWORD_FILE ~/.vault_password.txt
 # set -x PATH $PATH $GOPATH/bin
 # set -gx PATH ~/anaconda3/bin $PATH
 # set -gx PATH ~/.local/bin $PATH 	# where anaconda pip installed awscli
@@ -25,7 +27,7 @@ source /usr/local/opt/asdf/asdf.fish
 # set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
 # kitty terminal
-kitty + complete setup fish | source
+# kitty + complete setup fish | source
 
 
 # # migrating from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/git/git.plugin.zsh 
