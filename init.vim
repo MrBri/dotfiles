@@ -1,4 +1,4 @@
-set encoding=utf8
+set encoding=UTF-8
 
 let mapleader = ","
 set number
@@ -7,8 +7,13 @@ set tabstop=2
 set shiftwidth=2
 set autowrite
 set expandtab
-set termguicolors " enable true colors, only for >= v0.1.5
 set nowrap
+set mouse=a
+" for vim 8 or if you have Neovim >= 0.1.5
+if (has("termguicolors"))
+ set termguicolors
+endif
+set updatetime=100
 
 "exit :term
 :tnoremap <C-\> <C-\><C-n>
@@ -64,13 +69,16 @@ Plug '/usr/local/opt/fzf'                                                 "Be su
 Plug 'junegunn/fzf.vim'                                                   "vim friendly fzf
 Plug 'w0rp/ale'                                                           "Lint, fix...
 
+Plug 'AndrewRadev/splitjoin.vim'
+
 " Syntax highlighting
 Plug 'fatih/vim-go'			                                                  "All things Golang
 Plug 'chr4/nginx.vim'			                                                "nginx syntax
 Plug 'hashivim/vim-terraform'                                             "Terraform tool
 Plug 'jparise/vim-graphql'                                                "Graphql syntax
 " Plug 'pangloss/vim-javascript'                                            "Do I need both?
-" Plug 'othree/yajs.vim'			                                              "Javascript syntax
+Plug 'othree/yajs.vim'			                                              "Javascript syntax
+Plug 'HerringtonDarkholme/yats.vim'			                                  "Typescript syntax
 " Plug 'othree/es.next.syntax.vim'	                                        "ES7 syntax
 " Plug 'carlitux/deoplete-ternjs'
 " Plug 'HerringtonDarkholme/yats.vim'	                                      "Typescript syntax
@@ -102,15 +110,27 @@ Plug 'mattn/emmet-vim'			                                              "exapndin
 " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 " Deprecating
-" Plug 'mhartington/oceanic-next'		                                      "colorscheme
+Plug 'mhartington/oceanic-next'		                                      "colorscheme
 " Plug 'neomake/neomake'			"Linting
+"
+Plug 'fatih/molokai'
 
+Plug 'ryanoasis/vim-devicons'
 " Add plugins to &runtimepath
 call plug#end()
 
 " Theme
+" colorscheme gruvbox
+" gruvboxsyntax enable
 syntax enable
-colorscheme gruvbox
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
+let g:oceanic_next_terminal_bold = 1
+let g:oceanic_next_terminal_italic = 1
+
+let g:rehash256 = 1
+let g:molokai_original = 1
+" colorscheme molokai
 
 " fzf: bindings
 " Ctrl-p but also set command-p in Therm (iterm2) in keyboard tab to :Files\n
@@ -118,7 +138,7 @@ nnoremap <c-p> :Files<CR>
 " search open files like tabs
 nmap <leader>; :Buffers<CR>
 " search all files in current working directory
-nmap <leader>t :Files<CR>
+" nmap <leader>t :Files<CR>
 " https://andrew.stwrt.ca/posts/vim-ctags/
 nmap <leader>r :Tags<CR>
 
@@ -133,8 +153,19 @@ let g:ale_fixers = {
 \   'yaml': ['prettier'],
 \   'yml': ['prettier'],
 \   'json': ['jq', 'prettier'],
+\   'typescript': ['tslint', 'prettier', 'eslint'],
 \}
 nmap <leader>f :ALEFix<CR>
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+"
+" You should not turn this setting on if you wish to use ALE as a completion
+" source for other completion plugins, like Deoplete.
+let g:ale_completion_enabled = 1
+" When working with TypeScript files, ALE supports automatic imports from external modules. This behavior is disabled by default and can be enabled by setting:
+" See :help ale-completion for more information.
+let g:ale_completion_tsserver_autoimport = 1
+let g:ale_set_balloons = 1
 
 " Neomake:
 " let makers = []
@@ -158,7 +189,7 @@ nmap <leader>f :ALEFix<CR>
 " Fugitive
 nmap <leader>gd :Gdiff<CR>
 
-" vim-go:
+" Vim-go:
 let g:go_fmt_command = "goimports"
 map <C-n> :cnext<CR>
 map <C-m> :cprevious<CR>
@@ -167,6 +198,8 @@ autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>m <Plug>(go-metalinter)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
   let l:file = expand('%')
@@ -176,6 +209,19 @@ function! s:build_go_files()
     call go#cmd#Build(0)
   endif
 endfunction
+
+let g:go_list_type = "quickfix"
+let g:go_test_timeout = '10s'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+" let g:go_metalinter_autosave = 1
+let g:go_auto_type_info = 1
 
 " Terraform
 let g:terraform_align=1
